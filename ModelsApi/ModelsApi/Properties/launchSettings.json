@@ -19,7 +19,7 @@
     "ModelsApi": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "api/Models",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

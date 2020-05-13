@@ -8,21 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A9CBF3EA-0809-4E55-900C-D2D9DC8A7F28}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
-		Script1.js = Script1.js
 	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "wwwroot", "wwwroot", "{3B95B579-1744-47C8-A231-6B9421CCB296}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "css", "css", "{DBFBD002-8E9A-45E3-B7D5-733F3EBFCA88}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{31D72EF0-5208-411F-A609-5E8D91500A37}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "js", "js", "{370BA8FD-313C-4A13-811B-45834505C6F9}"
-	ProjectSection(SolutionItems) = preProject
-		Script1.js = Script1.js
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{945E746E-4204-45E8-BF82-A67E7F610BC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,12 +23,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{DBFBD002-8E9A-45E3-B7D5-733F3EBFCA88} = {3B95B579-1744-47C8-A231-6B9421CCB296}
-		{31D72EF0-5208-411F-A609-5E8D91500A37} = {3B95B579-1744-47C8-A231-6B9421CCB296}
-		{370BA8FD-313C-4A13-811B-45834505C6F9} = {3B95B579-1744-47C8-A231-6B9421CCB296}
-		{945E746E-4204-45E8-BF82-A67E7F610BC1} = {3B95B579-1744-47C8-A231-6B9421CCB296}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C9C8285F-40E2-4E35-90C2-D5FCF1050694}

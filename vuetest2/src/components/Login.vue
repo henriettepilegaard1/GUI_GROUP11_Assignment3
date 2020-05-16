@@ -11,22 +11,16 @@
     </style>
 <template>
   <div class="center">
-        <form class="login" @submit.prevent="Login">
-            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>         
-            <label for="email" class="sr-only">Email</label>
-     <input required v-model="email" type="text" placeholder="Email"/> <br>
-            <label for="password" class="sr-only">Password</label>
+    <form class="login" @submit.prevent="login">
+        <h1>Log in</h1>
+         <label>Email    </label>
+     <input required v-model="email" type="text" placeholder="Email   "/> <br>
+
+     <label>Password</label>
      <input required v-model="password" type="password" placeholder="Password"/> <br>
-     <div class="checkbox mb-3">
-    <label>
-      <input type="checkbox" value="remember-me"> Remember me
-    </label>
-  </div>
-     <button style="width=75px" type="submit">Sign in</button>    
+     <button type="submit">Login</button>
     </form>
   </div>
-
-  
 </template>
 
 <script>

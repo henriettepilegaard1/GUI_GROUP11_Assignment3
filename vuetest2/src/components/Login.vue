@@ -1,15 +1,32 @@
+<style>
+.center{
+    position:fixed;
+    width:780px;
+    height:650px;
+    left:50%;
+    top:50%;
+    margin-left:-100px;
+    margin-top:-200px;
+}
+    </style>
 <template>
-  <div>
-    <form class="login" @submit.prevent="login">
-        <h1>Log in</h1>
-         <label>Username</label>
-     <input required v-model="username" type="text" placeholder="Username"/>
-     <label>Password</label>
-     <input required v-model="password" type="password" placeholder="Password"/>
-     <hr/>
-     <button type="submit">Login</button>
+  <div class="center">
+        <form class="login" @submit.prevent="Login">
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>         
+            <label for="email" class="sr-only">Email</label>
+     <input required v-model="email" type="text" placeholder="Email"/> <br>
+            <label for="password" class="sr-only">Password</label>
+     <input required v-model="password" type="password" placeholder="Password"/> <br>
+     <div class="checkbox mb-3">
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+  </div>
+     <button style="width=75px" type="submit">Sign in</button>    
     </form>
   </div>
+
+  
 </template>
 
 <script>
@@ -19,14 +36,14 @@ export default {
   name: "login",
   data() {
     return {
-      username: "",
+      email: "",
       password: ""
     };
   },
   methods: {
     login: function() {
       axios.post(`https://localhost:44368/api/account/login`, {
-            Email: this.username,
+            Email: this.email,
             Password: this.password
         }, 
         {

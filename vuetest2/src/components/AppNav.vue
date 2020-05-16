@@ -42,6 +42,14 @@
         >
           Jobs
         </router-link>
+        <router-link
+          to="Login"
+          class="nav-item nav-link"
+          active-class="active"
+          exact
+        >
+          Login
+        </router-link>
       </div>
       <ul class ="navbar-nav ml-auto">
         <li><router-link

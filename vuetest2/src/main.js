@@ -8,6 +8,7 @@ import Models from './components/Models'
 import Managers from './components/Managers'
 import Jobs from './components/Jobs'
 import AddModel from './components/AddModel'
+import Login from './components/Login'
 
 
 Vue.use(vueResource)
@@ -17,6 +18,7 @@ const router = new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: [
+    {path: '/Login', component: Login},
     {path: '/Models', alias: "/", component: Models},
     {path: '/Managers', component: Managers},
     {path: '/Jobs', component: Jobs},

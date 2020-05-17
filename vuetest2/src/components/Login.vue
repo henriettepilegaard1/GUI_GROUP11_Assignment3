@@ -53,7 +53,6 @@ export default {
   },
   computed: {
     loggedIn() {
-      //return this.$store.validateAll
       return this.$store.state.auth.status.loggedIn;
     }
   },

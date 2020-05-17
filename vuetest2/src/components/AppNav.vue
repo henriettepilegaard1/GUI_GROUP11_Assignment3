@@ -13,7 +13,7 @@
     </button>
 
     <a class="navbar-brand" href="#">
-        Models Management | 
+        M for Models | 
     </a>
 
     <div class="collapse navbar-collapse" id="appnav">

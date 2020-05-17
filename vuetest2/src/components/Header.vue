@@ -1,7 +1,8 @@
 <template>
   <header class="header">
-    <h1>Models Management</h1>
+    <h1>M for Models</h1>
     <div id="nav">
+      <router-link to="Home" active-class="active" > Home</router-link> |
       <router-link to="/Models">Models</router-link> |
       <router-link to="/Managers">Managers</router-link> |
       <router-link to="/Jobs">Jobs</router-link> |

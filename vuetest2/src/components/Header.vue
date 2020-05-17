@@ -5,15 +5,25 @@
       <router-link to="/Models">Models</router-link> |
       <router-link to="/Managers">Managers</router-link> |
       <router-link to="/Jobs">Jobs</router-link> |
-      <router-link to="/Login">Log out</router-link>
+      <router-link to="/Login">
+        <a href @click.prevent="logOut">
+            Log Out
+        </a>
+      </router-link>
     </div>
   </header>
 </template>
 
 <script>
 export default {
-  name: "Header"
-}
+  name: "Header",
+  methods: {
+    logOut() {
+      this.$store.dispatch('auth/logout');
+      this.$router.push('/login');
+    }
+  }
+};
 </script>
 
 <style scoped>

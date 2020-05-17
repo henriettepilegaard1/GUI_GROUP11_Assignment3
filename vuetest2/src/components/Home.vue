@@ -1,21 +1,31 @@
 <template>
-  <div>
-  <header class="app-header">
-    <appNav/>
-  </header>
-     <main class="container">
-      <router-view></router-view>
-    </main>
+  <div class="container">
+      <h3>{{content}}</h3>
   </div>
 </template>
 
 <script>
-import AppNav from "../components/AppNav.vue";
+import UserService from '../services/user.service';
 
 export default {
-  components: {
-    AppNav
+  name: 'Home',
+  data() {
+    return {
+      content: 'Hej og velkommen... skriv noget fedt her'
+    };
+  },
+  mounted() {
+    UserService.getPublicContent().then(
+      response => {
+        this.content = response.data;
+      },
+      error => {
+        this.content =
+          (error.response && error.response.data) ||
+          error.message ||
+          error.toString();
+      }
+    );
   }
 };
 </script>
-

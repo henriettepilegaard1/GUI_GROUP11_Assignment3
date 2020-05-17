@@ -19,6 +19,14 @@
     <div class="collapse navbar-collapse" id="appnav">
       <div class="nav navbar-nav">
         <router-link
+          to="Home"
+          class="nav-item nav-link"
+          active-class="active"
+          exact
+        >
+        Home
+        </router-link>
+        <router-link
           to="Models"
           class="nav-item nav-link"
           active-class="active"
@@ -41,14 +49,6 @@
           exact
         >
           Jobs
-        </router-link>
-        <router-link
-          to="Login"
-          class="nav-item nav-link"
-          active-class="active"
-          exact
-        >
-          Login
         </router-link>
       </div>
       <ul class ="navbar-nav ml-auto">

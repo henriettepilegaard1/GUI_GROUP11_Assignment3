@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+import {router} from './router'
 import VueRouter from 'vue-router'
 import vueResource from 'vue-resource'
 import store from './store';
@@ -22,11 +23,21 @@ import {
   faSignOutAlt
 } from '@fortawesome/free-solid-svg-icons';
 
+library.add(faUser, faSignInAlt, faSignOutAlt);
 
 
+Vue.use(VeeValidate);
+Vue.component('font-awesome-icon', FontAwesomeIcon);
 
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount('#app');
+/*
 Vue.use(vueResource)
 Vue.use(VueRouter)
+
 
 const router = new VueRouter({
   mode: 'history',
@@ -40,11 +51,12 @@ const router = new VueRouter({
     {path: '/addModel', component: AddModel}
   ]
 })
-
-/* eslint-disable no-new */
+ eslint-disable no-new 
 new Vue({
   router,
     el: '#app',
     router,
     render: h => h(App)
 })
+*/
+

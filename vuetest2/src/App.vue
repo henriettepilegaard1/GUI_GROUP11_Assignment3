@@ -1,8 +1,27 @@
 <template>
-  <div id="app">
-    <router-view/>
+  <div>
+    <header class="app-header">
+      <app-nav></app-nav>
+    </header>
+    <main class="container">
+      <router-view></router-view>
+    </main>
+      <div id="app">
+  </div>
   </div>
 </template>
+
+<script>
+
+import AppNav from './components/AppNav'
+
+export default {
+  components: {
+    AppNav
+  }
+}
+
+</script>
 
 <style>
   #app {

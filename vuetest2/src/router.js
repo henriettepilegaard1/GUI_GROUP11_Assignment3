@@ -16,7 +16,7 @@ export const router = new Router({
         {
             path: '/Login',
             alias: "/",  
-            component: Login
+            component: Login, meta: {hideNavigation: true} //hide header from login
         },
         {
             path: '/Home', 
@@ -39,7 +39,8 @@ export const router = new Router({
             component: AddModel
         }
       ]
-    })
+    });
+
     router.beforeEach((to, from, next) => 
     {
         const publicPages = ['/Login'];

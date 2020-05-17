@@ -1,12 +1,14 @@
 <template>
     <div class="addModel container">
-        <br>
-        <div class="col-md-8 order-md-1">
-      <h4 class="mb-3">Model registration form</h4>
-      <p>Please enter all required fields.</p>
-      <br>
-      <hr class="mb-4">
-        <h4 class="mb-3">Model info</h4>
+    <br>
+    <div class="clearfix">
+        <h3 class="page-header" style="float: left;">Add new model</h3>
+    </div>
+    <br>
+    <div>
+        <p>On this page you can add new models by filling in the required fields.</p>
+    </div>
+    <hr class="mb-4">
 
       <form v-on:submit="addModel" @submit.prevent="false" class="needs-validation" novalidate>
         <div class="row">
@@ -138,7 +140,6 @@
       <br>
       <br>
       <br>
-    </div>
     </div>
 </template>
 

@@ -10,7 +10,7 @@
     </div>
     <hr class="mb-4">
 
-      <form v-on:submit="addModel" @submit.prevent="false" class="needs-validation" novalidate>
+      <form v-on:submit="addModel" @submit.prevent="false" class="needs-validation" validate>
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName">First name*</label>

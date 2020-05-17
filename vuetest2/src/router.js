@@ -6,6 +6,7 @@ import Models from './components/Models'
 import Managers from './components/Managers'
 import Jobs from './components/Jobs'
 import AddModel from './components/AddModel'
+import AddJob from './components/addJob'
 
 Vue.use(Router)
 
@@ -37,6 +38,10 @@ export const router = new Router({
         {
             path: '/addModel',
             component: AddModel
+        },
+        {
+            path: '/addJob',
+            component: AddJob
         }
       ]
     });

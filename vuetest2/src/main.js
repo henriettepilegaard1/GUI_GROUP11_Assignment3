@@ -7,18 +7,9 @@ import store from './store';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import VeeValidate from 'vee-validate';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import axios from 'axios'
-import {
-  faUser,
-  faSignInAlt,
-  faSignOutAlt
-} from '@fortawesome/free-solid-svg-icons';
 
-library.add(faUser, faSignInAlt, faSignOutAlt);
 Vue.use(VeeValidate);
-Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 new Vue({
   router,

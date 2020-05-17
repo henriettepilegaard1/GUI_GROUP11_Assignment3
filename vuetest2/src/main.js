@@ -4,12 +4,25 @@ import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
 import vueResource from 'vue-resource'
+import store from './store';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import VeeValidate from 'vee-validate';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import Models from './components/Models'
 import Managers from './components/Managers'
 import Jobs from './components/Jobs'
 import AddModel from './components/AddModel'
 import Login from './components/Login'
 import Home from './components/Home'
+import {
+  faUser,
+  faSignInAlt,
+  faSignOutAlt
+} from '@fortawesome/free-solid-svg-icons';
+
+
 
 
 Vue.use(vueResource)

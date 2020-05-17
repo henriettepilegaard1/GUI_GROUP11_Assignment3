@@ -17,6 +17,8 @@
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
     "vee-validate": "^2.2.15",
+    "axios": "^0.19.2",
+    "bootstrap-vue": "^2.14.0",
     "vue": "^2.5.2",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.1.6",

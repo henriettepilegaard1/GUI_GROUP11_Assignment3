@@ -1,121 +1,202 @@
 <template>
     <div class="addModel container">
-        <h1 class="page-header">Add new model</h1>
-        <form v-on:submit="addModel">
-            <div class="well">
-                <h4>Model info</h4>
-                <div class="form-group">
-                    <label>First Name</label>
-                    <input type="text" class="form-control" placeholder="First Name" v-model="model.firstName">
-                </div>
-                <div class="form-group">
-                    <label>Last Name</label>
-                    <input type="text" class="form-control" placeholder="Last Name" v-model="model.lastName">
-                </div>
-                <div class="form-group">
-                    <label>E-mail</label>
-                    <input type="text" class="form-control" placeholder="Email" v-model="model.email">
-                </div>
-                <div class="form-group">
-                    <label>Phone Number</label>
-                    <input type="text" class="form-control" placeholder="Phone Number" v-model="model.phoneNo">
-                </div>
-                <div class="form-group">
-                    <label>Address Line 1</label>
-                    <input type="text" class="form-control" placeholder="Address Line 1" v-model="model.addresLine1">
-                </div>
-                <div class="form-group">
-                    <label>Address Line 2</label>
-                    <input type="text" class="form-control" placeholder="Address Line 2" v-model="model.addresLine2">
-                </div>
-                <div class="form-group">
-                    <label>Zip Code</label>
-                    <input type="text" class="form-control" placeholder="Zip Code" v-model="model.zip">
-                </div>
-                <div class="form-group">
-                    <label>City</label>
-                    <input type="text" class="form-control" placeholder="City" v-model="model.city">
-                </div>
-                <div class="form-group">
-                    <label>Country</label>
-                    <input type="text" class="form-control" placeholder="Country" v-model="model.country">
-                </div>
-                <div class="form-group">
-                    <label>Birth Date</label>
-                    <input type="text" class="form-control" placeholder="Birth Date" v-model="model.birthDate">
-                </div>
-                <div class="form-group">
-                    <label>Nationality</label>
-                    <input type="text" class="form-control" placeholder="Nationality" v-model="model.nationality">
-                </div>
-                <div class="form-group">
-                    <label>Height</label>
-                    <input type="text" class="form-control" placeholder="Height" v-model="model.height">
-                </div>
-                <div class="form-group">
-                    <label>Shoe Size</label>
-                    <input type="text" class="form-control" placeholder="Shoe Size" v-model="model.shoeSize">
-                </div>
-                <div class="form-group">
-                    <label>Hair Color</label>
-                    <input type="text" class="form-control" placeholder="Hair Color" v-model="model.hairColor">
-                </div>
-                <div class="form-group">
-                    <label>Eye Color</label>
-                    <input type="text" class="form-control" placeholder="Eye Color" v-model="model.eyeColor">
-                </div>
-                <div class="form-group">
-                    <label>Comments</label>
-                    <input type="text" class="form-control" placeholder="Comments" v-model="model.comments">
-                </div>
+        <br>
+        <div class="col-md-8 order-md-1">
+      <h4 class="mb-3">Model registration form</h4>
+      <p>Please enter all required fields.</p>
+      <br>
+      <hr class="mb-4">
+        <h4 class="mb-3">Model info</h4>
+
+      <form v-on:submit="addModel" @submit.prevent="false" class="needs-validation" novalidate>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="firstName">First name*</label>
+            <input type="text" class="form-control" id="firstName" placeholder="" value="" required v-model="model.firstName">
+            <div class="invalid-feedback">
+              Valid first name is required.
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="lastName">Last name*</label>
+            <input type="text" class="form-control" id="lastName" placeholder="" value="" required v-model="model.lastName">
+            <div class="invalid-feedback">
+              Valid last name is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="email">E-mail*</label>
+          <input type="email" class="form-control" id="email" placeholder="you@example.com" value="" required v-model="model.email">
+          <div class="invalid-feedback">
+            Please enter a valid email address.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="phone">Phone number*</label>
+          <input type="phone" class="form-control" id="phoneNo" placeholder="+45 00 00 00 00" value="" required v-model="model.phoneNo">
+          <div class="invalid-feedback">
+            Please enter a valid phone number.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="address">Address Line 1*</label>
+          <input type="text" class="form-control" id="address" placeholder="1234 Main St" value="" required v-model="model.addresLine1">
+          <div class="invalid-feedback">
+            Please enter valid address.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="address2">Address Line 2 <span class="text-muted">(Optional)</span></label>
+          <input type="text" class="form-control" id="address2" placeholder="Apartment or suite" v-model="model.addresLine2">
+        </div>
+
+        <div class="row">
+          <div class="col-md-5 mb-3">
+            <label for="country">Country*</label>
+            <select class="custom-select d-block w-100" id="country" value="" v-model="model.country" required>
+              <option value="">Choose...</option>
+              <option>Canada</option>
+              <option>Denmark</option>
+              <option>England</option>
+              <option>Norway</option>
+              <option>Sweden</option>
+              <option>United States</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid country.
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="zip">Zip*</label>
+            <input type="text" class="form-control" id="zip" placeholder="" required v-model="model.zip"> 
+            <div class="invalid-feedback">
+              Zip code required.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="city">City*</label>
+            <input type="text" class="form-control" id="city" placeholder="" required v-model="model.city">
+            <div class="invalid-feedback">
+              City required.
+            </div>
+          </div>
+        </div>
+        <hr class="mb-4">
+
+        <h4 class="mb-3">Model details</h4>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="birthDate">Birth Date <span class="text-muted">(Optional)</span></label>
+            <input type="text" class="form-control" id="birthDate" placeholder="DD-MM-YYYY" v-model="model.birthDate">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="nationality">Nationality <span class="text-muted">(Optional)</span></label>
+            <input type="text" class="form-control" id="nationality" placeholder="" v-model="model.nationality">
+          </div>
+        </div>
+
+        <div class="row">
+        <div class="col md6 mb-3">
+          <label for="height">Height <span class="text-muted">(Optional)</span></label>
+          <input type="height" class="form-control" id="height" placeholder="" v-model="model.height">
+        </div>
+
+        <div class="col md-6 mb-3">
+          <label for="shoeSize">Shoe Size <span class="text-muted">(Optional)</span></label>
+          <input type="shoeSize" class="form-control" id="shoeSize" placeholder="" v-model="model.shoeSize">
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col md6 mb-3">
+          <label for="hairColor">Hair Color <span class="text-muted">(Optional)</span></label>
+          <input type="hairColor" class="form-control" id="haircolor" placeholder="" v-model="model.hairColor">
+        </div>
+
+        <div class="col md-6 mb-3">
+          <label for="eyeColor">Eye Color <span class="text-muted">(Optional)</span></label>
+          <input type="eyeColor" class="form-control" id="eyeColor" placeholder="" v-model="model.eyeColor">
+        </div>
+    </div>
+
+     <div class="mb-3">
+          <label for="comments">Comments <span class="text-muted">(Optional)</span></label>
+          <input type="multiLine" class="form-control" id="comments" placeholder="" v-model="model.comments">
+        </div>
+    <br>
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+      </form>
+      <br>
+      <br>
+      <br>
+    </div>
     </div>
 </template>
 
 <script>
-    export default {
-        name: 'addModel',
-        data() {
-            return {
-                model: {}
-            }
-        },
-        methods: {
-            addModel(e){
-                if(!this.model.firstName || !this.model.lastName || !this.model.email || !this.model.phoneNo){
-                    console.log("Please fill in all required fields");
-                } else {
-                    let newModel = {
-                        firstName: this.model.firstName,
-                        lastName: this.model.lastName,
-                        email: this.model.email,
-                        phoneNo: this.model.phoneNo,
-                        addresLine1: this.model.addresLine1,
-                        addresLine2: this.model.addresLine2,
-                        zip: this.model.zip,
-                        city: this.model.city,
-                        country: this.model.country,
-                        birthDate: this.model.birthDate,
-                        nationality: this.model.nationality,
-                        height: this.model.height,
-                        shoeSize: this.model.shoeSize,
-                        hairColor: this.model.hairColor,
-                        eyeColor: this.model.eyeColor,
-                        comments: this.model.comments
-                    }
-                    this.$http.post('https://localhost:44368/index.html', newModel)
-                        .then(function(response){
-                            this.$router.push({path: "/"});
-                        });
-                }
-                e.preventDefault();
+    import axios from 'axios';
+
+export default {
+  name: "addModel",
+  data() {
+    return {
+        model: {}
+    };
+  },
+  methods: {
+    addModel: function() {
+      axios.post(`https://localhost:44368/api/account/login`, {
+            firstName: this.firstName,
+            lastName: this.lastName,
+            email: this.email,
+            phoneNo: this.phoneNo,
+            addresLine1: this.addresLine1,
+            addresLine2: this.addresLine2,
+            country: this.country,
+            zip: this.zip,
+            city: this.city,
+            birthDate: this.birthDate,
+            nationality: this.nationality,
+            height: this.height,
+            shoeSize: this.shoeSize,
+            hairColor: this.hairColor,
+            eyeColor: this.eyeColor,
+            comments: this.comments,
+        }, 
+        {
+            headers: { 
+            'Content-Type': 'application/json'
             }
         }
-    };
+    )
+    .then(response => {
+        console.log(model)
+    })
+    .catch(e => {
+      this.errors.push(e)
+    })
+    }
+  }
+};
+    
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+    *{
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+        .routerLink{
+        text-decoration: none;
+    }
+    
 </style>

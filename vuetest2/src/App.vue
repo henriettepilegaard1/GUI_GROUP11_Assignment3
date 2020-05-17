@@ -1,31 +1,40 @@
 <template>
-  <div>
-    <header class="app-header">
-      <app-nav></app-nav>
-    </header>
-    <main class="container">
-      <router-view></router-view>
-    </main>
-      <div id="app">
-  </div>
+  <div id="app">
+    <Header v-if="!$route.meta.hideNavigation"/>
+    <router-view/>
   </div>
 </template>
 
 <script>
-
-import AppNav from './components/AppNav'
-
+import Header from './components/Header';
 export default {
+  name: "app",
   components: {
-    AppNav
+    Header
   }
+  
 }
-
 </script>
 
 <style>
-  #app {
-    margin-left: 20px;
-    margin-right: 20px;
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.4;
+  }
+  .btn {
+    display: inline-block;
+    border: none;
+    background: #555;
+    color: #fff;
+    padding: 7px 20px;
+    cursor: pointer;
+  }
+  .btn:hover {
+    background: #666;
   }
 </style>

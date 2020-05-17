@@ -16,7 +16,9 @@ import Managers from './components/Managers'
 import Jobs from './components/Jobs'
 import AddModel from './components/AddModel'
 import Login from './components/Login'
+import axios from 'axios'
 import Home from './components/Home'
+
 import {
   faUser,
   faSignInAlt,
@@ -43,20 +45,27 @@ const router = new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: [
-    {path: '/Login',alias: "/",  component: Login},
-    {path: '/Home', component: Home},
+    {path: '/Login', alias: "/", component: Login, meta: {hideNavigation: true}}, //hide header from login
     {path: '/Models', component: Models},
     {path: '/Managers', component: Managers},
     {path: '/Jobs', component: Jobs},
     {path: '/addModel', component: AddModel}
   ]
 })
- eslint-disable no-new 
+
+
+
+
+eslint-disable no-new 
 new Vue({
   router,
     el: '#app',
     router,
-    render: h => h(App)
-})
-*/
+    render: h => h(App),
+})*/
 
+const instance = axios.create({
+baseURL: 'https://localhost:44368', //write /api/... instead of the whole url every time
+});
+
+axios.create();

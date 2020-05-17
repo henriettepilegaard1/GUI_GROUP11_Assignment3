@@ -71,7 +71,7 @@ export default {
   },
   methods: {
     addJob: function() {
-      axios.post(`https://localhost:44368/api/account/login`, {
+      axios.post(`https://localhost:44368/api/Jobs`, {
             costumer: this.costumer,
             startDate: this.startDate,
             days: this.days,

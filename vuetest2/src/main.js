@@ -9,7 +9,7 @@ import Managers from './components/Managers'
 import Jobs from './components/Jobs'
 import AddModel from './components/AddModel'
 import Login from './components/Login'
-
+import axios from 'axios'
 
 Vue.use(vueResource)
 Vue.use(VueRouter)
@@ -18,18 +18,24 @@ const router = new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: [
-    {path: '/Login', component: Login},
-    {path: '/Models', alias: "/", component: Models},
+    {path: '/Login', alias: "/", component: Login, meta: {hideNavigation: true}}, //hide header from login
+    {path: '/Models', component: Models},
     {path: '/Managers', component: Managers},
     {path: '/Jobs', component: Jobs},
     {path: '/addModel', component: AddModel}
   ]
 })
 
+const instance = axios.create({
+  baseURL: 'https://localhost:44368', //write /api/... instead of the whole url every time
+});
+
+axios.create();
+
 /* eslint-disable no-new */
 new Vue({
   router,
     el: '#app',
     router,
-    render: h => h(App)
+    render: h => h(App),
 })

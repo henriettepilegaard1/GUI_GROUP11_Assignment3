@@ -1,6 +1,13 @@
 <template>
     <div class="jobs container">
-        <h1 class="page-header">Jobs</h1>
+        <br>
+        <div class="clearfix">
+            <h3 class="page-header" style="float: left;">Jobs</h3>
+        </div>
+        <div>
+            <h7>On this page you can..</h7>
+        </div>
+        <br>
     </div>
 </template>
 

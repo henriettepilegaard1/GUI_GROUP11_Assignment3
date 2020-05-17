@@ -45,7 +45,7 @@ namespace ModelsApi.Controllers
         public async Task<ActionResult<Token>> Login([FromBody]Login login)
         {
             if (login != null)
-            {
+            {   
                 login.Email = login.Email.ToLowerInvariant();
                 var account = await _context.Accounts.Where(u => u.Email == login.Email)
                     .FirstOrDefaultAsync().ConfigureAwait(false);

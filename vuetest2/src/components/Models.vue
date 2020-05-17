@@ -5,7 +5,8 @@
         <h3 class="page-header" style="float: left;">Models</h3>
     </div>
     <div>
-        <h7>On this page you will see a list of all models. You can click on any model to see if their details fit your needs. If none of the models fit, you can add a new model by clicking the button "Add new model".</h7>
+        <br>
+        <p>On this page you will see a list of all models. You can click on any model to see if their details fit your needs. If none of the models fit, you can add a new model by clicking the button "Add new model".</p>
     </div>
     <br>
         <table class="table table-striped">
@@ -19,12 +20,12 @@
             </thead>
             <tr><td>&nbsp;</td></tr>
             <tbody>
-                <!--<tr v-for="model in models">
+                <!-- <tr v-for="model in models">
                     <td>{{model.firstName}}</td>
                     <td>{{model.lastName}}</td>
                     <td>{{model.email}}</td>
-                    <td>{{model.phoneNo}}</td>
-                </tr> -->
+                    <td>{{model.phoneNo}}</td> 
+                </tr>-->
             </tbody>
         </table>
         <button class="btn btn-primary" style="float: right; position: relative; top: 10px;">

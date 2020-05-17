@@ -1,12 +1,24 @@
 <template>
     <div class="managers container">
-        <h1 class="page-header">Managers</h1>
+    <br>
+    <div class="clearfix">
+        <h3 class="page-header" style="float: left;">Managers</h3>
+    </div>
+    <div>
+        <h7>On this page you can..</h7>
+    </div>
+    <br>
     </div>
 </template>
 
 <script>
+//import AppNav from './components/AppNav';
+
     export default {
         name: 'managers',
+        components: {
+            //AppNav
+        },
         data() {
             return {
 

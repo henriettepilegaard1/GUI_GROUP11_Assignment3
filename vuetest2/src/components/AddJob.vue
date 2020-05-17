@@ -10,7 +10,7 @@
     </div>
     <hr class="mb-4">
 
-      <form v-on:submit="addJob" @submit.prevent="false" class="needs-validation" validate>
+      <form v-on:submit="addJob" @submit.prevent="onSubmit" class="needs-validation" validate>
         <div class="mb-3">
           <label for="customer">Customer</label>
           <input type="customer" class="form-control" id="customer" placeholder="" required v-model="job.costumer">
@@ -51,7 +51,7 @@
         </div>
     <br>
         <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+        <button class="btn btn-primary btn-lg btn-block" type="addJob">Submit</button>
       </form>
       <br>
       <br>
@@ -66,32 +66,47 @@ export default {
   name: "addJob",
   data() {
     return {
-        job: {}
+        validationErrors: Object,
+        job: {
+            costumer: "",
+            startDate: "",
+            days: "",
+            location: "",
+            comments: ""
+        }
     };
   },
-  methods: {
-    addJob: function() {
-      axios.post(`https://localhost:44368/api/Jobs`, {
-            costumer: this.costumer,
-            startDate: this.startDate,
-            days: this.days,
-            location: this.location,
-            comments: this.comments
-        }, 
-        {
-            headers: { 
-            'Content-Type': 'application/json'
-            }
+    methods: {
+        onSubmit(){
+            return new Promise((resolve, reject) => {
+                var formData = new formData();
+            formData.append("costumer", this.job.costumer);
+            formData.append("startDate", this.job.startDate);
+            formData.append("days", this.job.days);
+            formData.append("location", this.job.location);
+            formData.append("comments", this.job.comments);
+
+            axios
+                .post(`/api/Jobs`, formData, {
+                    headers: {
+                        'Content-Type': "multipart/form-data",
+                    }
+                })
+                .then(response => {
+                    return resolve({
+                        status: response.status
+                    });
+                    this.$router.push("/Jobs");
+                })
+                .catch(err => {
+                    return reject({
+                        errors: err.response.data.errors,
+                        status: err.response.status
+                    });
+                })
+            })
         }
-    )
-    .then(response => {
-        console.log(job)
-    })
-    .catch(e => {
-      this.errors.push(e)
-    })
     }
-  }
 };
     
 </script>

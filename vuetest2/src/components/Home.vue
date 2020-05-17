@@ -1,6 +1,12 @@
 <template>
   <div class="container">
+    <img
+      id="mlogo-img"
+      src="/static/m.png"      
+      class="mlogo-img"
+    />
       <h3>{{content}}</h3>
+      <p></p>
   </div>
 </template>
 
@@ -11,7 +17,7 @@ export default {
   name: 'Home',
   data() {
     return {
-      content: 'Hej og velkommen... skriv noget fedt her'
+      content: 'Welcome Models and Managers'
     };
   },
   mounted() {
@@ -29,3 +35,13 @@ export default {
   }
 };
 </script>
+<style scoped>
+*{font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
+
+.mlogo-img
+{
+  width: 300px;
+  height: 300px;
+}
+
+</style>

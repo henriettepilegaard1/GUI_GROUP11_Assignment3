@@ -20,12 +20,12 @@
             </thead>
             <tr><td>&nbsp;</td></tr>
             <tbody>
-                <!-- <tr v-for="job in jobs">
+                <tr v-for="job in jobs" v-bind:key="job.efJobId">
                     <td>{{job.customer}}</td>
                     <td>{{job.startDate}}</td>
                     <td>{{job.days}}</td>
                     <td>{{job.location}}</td> 
-                </tr>-->
+                </tr>
             </tbody>
         </table>
         <button class="btn btn-primary" style="float: right; position: relative; top: 10px;">
@@ -35,7 +35,7 @@
 </template>
 
 <script>
-//import axios from 'axios';
+import axios from 'axios';
 import Header from './Header';
 
     export default {
@@ -43,21 +43,32 @@ import Header from './Header';
         components: {
             Header
         },
-        data() {
+        data: function() {
             return {
-                models: []
+                jobs: []
             }
         },
         methods: {
             fetchJobs(){
-                axois.get('/api/Jobs')
-                    .then(function(response){
-                        this.models = JSON.parse(response.body)
-                    });
+                axois.get(`https://localhost:44368/api/Jobs`,
+                    {
+                        hearders: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + localStorage.getItem('token') 
+                        }
+                    }
+                ).then((response)=>{
+                        console.log(response.data); 
+                        this.jobs = response.data; 
+                        console.log(this.jobs[0].efJobId);
+                        }
+                    ).catch(e => {
+                    console.log("wrong"); 
+                });
             }
         },
-        created: function(){
-            this.fetchJobs
+        mounted(){
+            this.fetchJobs();
         }
     };
 </script>

@@ -30,7 +30,7 @@
 
         <div class="col md-6 mb-3">
           <label for="days">Days*</label>
-          <input type="days" class="form-control" id="days" placeholder="Amount of days" v-model="job.days">
+          <input type="text" class="form-control" id="days" placeholder="Amount of days" v-model="job.days">
           <div class="invalid-feedback">
               Please enter amount of days.
             </div>
@@ -47,11 +47,11 @@
 
      <div class="mb-3">
           <label for="comments">Comments <span class="text-muted">(Optional)</span></label>
-          <input type="multiLine" class="form-control" id="comments" placeholder="">
+          <input type="multiLine" class="form-control" id="comments" placeholder="" v-model="job.comments">
         </div>
     <br>
         <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="addJob">Submit</button>
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
       </form>
       <br>
       <br>
@@ -60,53 +60,33 @@
 </template>
 
 <script>
-    import axios from 'axios';
+import axios from 'axios';
 
 export default {
   name: "addJob",
   data() {
     return {
-        validationErrors: Object,
-        job: {
-            costumer: "",
-            startDate: "",
-            days: "",
-            location: "",
-            comments: ""
-        }
+        job: {}
     };
   },
     methods: {
-        onSubmit(){
-            return new Promise((resolve, reject) => {
-                var formData = new formData();
-            formData.append("costumer", this.job.costumer);
-            formData.append("startDate", this.job.startDate);
-            formData.append("days", this.job.days);
-            formData.append("location", this.job.location);
-            formData.append("comments", this.job.comments);
-
-            axios
-                .post(`/api/Jobs`, formData, {
-                    headers: {
-                        'Content-Type': "multipart/form-data",
-                    }
-                })
-                .then(response => {
-                    return resolve({
-                        status: response.status
-                    });
-                    this.$router.push("/Jobs");
-                })
-                .catch(err => {
-                    return reject({
-                        errors: err.response.data.errors,
-                        status: err.response.status
-                    });
-                })
-            })
+    addJob: function() {
+      axios.post(`https://localhost:44368/api/Jobs`, this.job,
+        {
+            headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+            }
         }
+    )
+    .then(response => {
+        console.log(job)
+    })
+    .catch(e => {
+      this.errors.push(e)
+    })
     }
+  }
 };
     
 </script>

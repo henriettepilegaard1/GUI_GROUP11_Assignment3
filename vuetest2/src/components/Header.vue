@@ -1,6 +1,9 @@
 <template>
   <header class="header">
-    <h1>M for Models</h1>
+    <h1 style="text-align: bottom"><img
+      id="mlogo-img"
+      src="/static/m.png"
+      class="mlogo-img"/> for Models</h1>
     <div id="nav">
       <router-link to="Home" active-class="active" > Home</router-link> |
       <router-link to="/Models">Models</router-link> |
@@ -42,4 +45,10 @@ export default {
     padding-right: 5px;
     text-decoration: none;
   }
+
+  .mlogo-img
+{
+  height: 68px;
+}
+
 </style>

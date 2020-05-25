@@ -20,12 +20,12 @@
             </thead>
             <tr><td>&nbsp;</td></tr>
             <tbody>
-                <!-- <tr v-for="model in models">
+                <tr v-for="model in models"  v-bind:key="model.efModelId">
                     <td>{{model.firstName}}</td>
                     <td>{{model.lastName}}</td>
                     <td>{{model.email}}</td>
                     <td>{{model.phoneNo}}</td> 
-                </tr>-->
+                </tr>
             </tbody>
         </table>
         <button class="btn btn-primary" style="float: right; position: relative; top: 10px;">
@@ -35,7 +35,7 @@
 </template>
 
 <script>
-//import axios from 'axios';
+import axios from 'axios';
 import Header from './Header';
 
     export default {
@@ -43,21 +43,33 @@ import Header from './Header';
         components: {
             Header
         },
-        data() {
+        data: function() {
             return {
                 models: []
             }
         },
         methods: {
             fetchModels(){
-                axois.get('/api/Models')
-                    .then(function(response){
-                        this.models = JSON.parse(response.body)
-                    });
+                axios.get(`https://localhost:44368/api/Models`, 
+                    {
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + localStorage.getItem('token') 
+                        }
+                    }
+                ).then(function(response){
+                    console.log(response.data); 
+                    this.models = JSON.parse(response.data); 
+                    console.log(this.models[0].efModelId);
+                    //this.models = JSON.parse(response); 
+                    }   
+                ).catch(e => {
+                    console.log("wrong"); 
+                });
             }
         },
-        created: function(){
-            this.fetchModels
+        mounted() {
+            this.fetchModels();
         }
     };
 </script>

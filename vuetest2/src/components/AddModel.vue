@@ -54,6 +54,14 @@
         </div>
 
         <div class="mb-3">
+          <label for="address">Password*</label>
+          <input type="text" class="form-control" id="password" placeholder="" value="" required v-model="model.password">
+          <div class="invalid-feedback">
+            Please enter a password.
+          </div>
+        </div>
+
+        <div class="mb-3">
           <label for="address2">Address Line 2 <span class="text-muted">(Optional)</span></label>
           <input type="text" class="form-control" id="address2" placeholder="Apartment or suite" v-model="model.addresLine2">
         </div>
@@ -144,7 +152,7 @@
 </template>
 
 <script>
-    import axios from 'axios';
+import axios from 'axios';
 
 export default {
   name: "addModel",
@@ -155,31 +163,16 @@ export default {
   },
   methods: {
     addModel: function() {
-      axios.post(`https://localhost:44368/api/account/login`, {
-            firstName: this.firstName,
-            lastName: this.lastName,
-            email: this.email,
-            phoneNo: this.phoneNo,
-            addresLine1: this.addresLine1,
-            addresLine2: this.addresLine2,
-            country: this.country,
-            zip: this.zip,
-            city: this.city,
-            birthDate: this.birthDate,
-            nationality: this.nationality,
-            height: this.height,
-            shoeSize: this.shoeSize,
-            hairColor: this.hairColor,
-            eyeColor: this.eyeColor,
-            comments: this.comments,
-        }, 
+      axios.post(`https://localhost:44368/api/Models`, this.model,
         {
             headers: { 
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
             }
         }
     )
     .then(response => {
+        this.$router.push('/Models')
         console.log(model)
     })
     .catch(e => {

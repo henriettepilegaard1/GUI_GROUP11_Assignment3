@@ -58,6 +58,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
     export default {
         name: 'addManager',
         data() {
@@ -67,27 +69,24 @@
         },
         methods: {
             addManager: function() {
-            axios.post(`https://localhost:44368/api/Managers`, {
-                firstName: this.firstName,
-                lastName: this.lastName,
-                email: this.email,
-                password: this.password
-        }, 
-        {
-            headers: { 
-            'Content-Type': 'application/json'
+            axios.post(`https://localhost:44368/api/Managers`, this.manager,
+            {
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': 'Bearer ' + localStorage.getItem('token')  
+                  }
             }
+        
+        )
+        .then(response => {
+          console.log(manager)
+        })
+        .catch(e => {
+          this.errors.push(e)
+        })
         }
-    )
-    .then(response => {
-        console.log(manager)
-    })
-    .catch(e => {
-      this.errors.push(e)
-    })
-    }
-        }
-    };
+      }
+  };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

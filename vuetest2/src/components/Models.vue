@@ -57,11 +57,10 @@ import Header from './Header';
                             'Authorization': 'Bearer ' + localStorage.getItem('token') 
                         }
                     }
-                ).then(function(response){
+                ).then((response)=>{
                     console.log(response.data); 
-                    this.models = JSON.parse(response.data); 
+                    this.models = response.data; 
                     console.log(this.models[0].efModelId);
-                    //this.models = JSON.parse(response); 
                     }   
                 ).catch(e => {
                     console.log("wrong"); 
